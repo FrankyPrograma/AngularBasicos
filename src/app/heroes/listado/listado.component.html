@@ -1,0 +1,26 @@
+<p>Listado de heroes</p>
+
+<div>
+    <!-- Este es el ngIf que es igual que el condicional If -->
+    <!-- El else es algo mas complicado, funciona por referencia local -->
+    <!-- Si no se cumple muestra ese template y se le ponemos a el template que queremos mostrar -->
+    <h3 *ngIf="heroeBorrado; else noBorrado">Heroe borrado: <small>{{ heroeBorrado }}</small></h3>
+</div>
+
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+<br>
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<!-- Directiva ngFor = es muy parecido a un bucle for  -->
+<!-- Estamos creando una let heroe de cada heroe del arreglo heroes -->
+<ul *ngFor="let heroe of heroes; let i = index">
+    <!-- Como tenemos 4 heroes nos crea un li por cada heroe -->
+    <li>{{ i + 1 }} - {{ heroe }}</li>
+</ul>
+
